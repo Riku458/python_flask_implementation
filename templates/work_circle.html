@@ -3,35 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Area of Circle</title>
+    <title>Circle Calculator</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <nav>
-        <a href="{{ url_for('home') }}">Home</a>
-        <a href="{{ url_for('profile') }}">Profile</a>
-        <a href="{{ url_for('works') }}" class="active">Works</a>
-        <a href="{{ url_for('contacts') }}">Contacts</a>
-    </nav>
+    <div class="site-container page-wrapper">
 
-    <main>
-        <h1>Calculate Area of Circle</h1>
-        <form method="POST">
-            <input type="number" name="radius" step="any" placeholder="Enter radius" required>
-            <button type="submit">Calculate</button>
-        </form>
+        <header>
+            <div class="logo" onclick="window.location.href='{{ url_for('profile') }}'">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Portfolio Logo">
+                My Portfolio
+            </div>
+            <nav>
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('profile') }}">Profile</a>
+                <a href="{{ url_for('works') }}" class="active">Works</a>
+                <a href="{{ url_for('contacts') }}">Contacts</a>
+            </nav>
+        </header>
 
-        <div class="result">
-            <p><strong>Area:</strong> {{ result or '' }}</p>
-        </div>
+        <main>
+            <h1>Circle Calculator</h1>
+            <form method="POST">
+                <input type="number" step="any" name="radius" placeholder="Enter radius" required>
+                <button type="submit">Calculate</button>
+            </form>
 
-        <div class="works-links">
-            <a href="{{ url_for('works') }}">← Back to Works</a>
-        </div>
-    </main>
+            {% if result %}
+            <div class="result-box">
+                <h2>Results:</h2>
+                <p>Area: {{ result.area }} square units</p>
+                <p>Circumference: {{ result.circumference }} units</p>
+            </div>
+            {% endif %}
+        </main>
 
-    <footer>
-        <p>&copy; 2025 Personal Web Portfolio</p>
-    </footer>
+        <footer>
+            <p>&copy; 2025 Personal Web Portfolio</p>
+        </footer>
+
+    </div>
 </body>
 </html>

@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import math
 
 app = Flask(__name__)
 
@@ -28,9 +29,12 @@ def work_circle():
     if request.method == 'POST':
         try:
             radius = float(request.form.get('radius', 0))
-            result = 3.1416 * (radius ** 2)
+            if radius > 0:
+                area = math.pi * (radius ** 2)
+                circumference = 2 * math.pi * radius
+                result = {"area": round(area, 2), "circumference": round(circumference, 2)}
         except ValueError:
-            result = "Invalid input. Please enter a number."
+            pass
     return render_template('work_circle.html', result=result)
 
 @app.route('/works/triangle', methods=['GET', 'POST'])
@@ -40,9 +44,11 @@ def work_triangle():
         try:
             base = float(request.form.get('base', 0))
             height = float(request.form.get('height', 0))
-            result = 0.5 * base * height
+            if base > 0 and height > 0:
+                area = 0.5 * base * height
+                result = {"area": round(area, 2)}
         except ValueError:
-            result = "Invalid input. Please enter numbers."
+            pass
     return render_template('work_triangle.html', result=result)
 
 @app.route('/contacts')

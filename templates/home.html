@@ -3,23 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Home - My Portfolio</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <nav>
-        <a href="{{ url_for('home') }}" class="active">Home</a>
-        <a href="{{ url_for('profile') }}">Profile</a>
-        <a href="{{ url_for('works') }}">Works</a>
-        <a href="{{ url_for('contacts') }}">Contacts</a>
-    </nav>
+    <div class="site-container page-wrapper">
 
-    <main>
-        <h1>Home</h1>
-    </main>
+        <header>
+            <div class="logo" onclick="window.location.href='{{ url_for('profile') }}'">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Portfolio Logo">
+                My Portfolio
+            </div>
+            <nav>
+                <a href="{{ url_for('home') }}" class="active">Home</a>
+                <a href="{{ url_for('profile') }}">Profile</a>
+                <a href="{{ url_for('works') }}">Works</a>
+                <a href="{{ url_for('contacts') }}">Contacts</a>
+            </nav>
+        </header>
 
-    <footer>
-        <p>&copy; 2025 Personal Web Portfolio</p>
-    </footer>
+        <main>
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>Turning Ideas Into Reality</h1>
+                    <p>Explore my creative works, web projects, and innovative tools — all crafted with design and logic.</p>
+                    <button onclick="window.location.href='{{ url_for('works') }}'">Explore My Works</button>
+                </div>
+            </section>
+
+            <section class="features">
+                <div class="works-container">
+
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <h3>Creative Designs</h3>
+                                <p>Visually engaging layouts and UI projects.</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <p>Explore design-focused projects with clean, modern, and professional user interfaces.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <h3>Smart Tools</h3>
+                                <p>Interactive apps & calculators.</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <p>Discover interactive tools — from text converters to shape calculators — built with precision and logic.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <h3>Clean Aesthetics</h3>
+                                <p>Minimalistic & user-friendly design.</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <p>Balancing design and functionality with simplicity, structure, and focus on user experience.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Personal Web Portfolio</p>
+        </footer>
+
+    </div>
 </body>
 </html>

@@ -3,23 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Profile - My Portfolio</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <a href="{{ url_for('home') }}">Home</a>
-        <a href="{{ url_for('profile') }}" class="active">Profile</a>
-        <a href="{{ url_for('works') }}">Works</a>
-        <a href="{{ url_for('contacts') }}">Contacts</a>
-    </nav>
+    <div class="site-container">
+        
+        <header>
+            <div class="logo" onclick="window.location.href='{{ url_for('profile') }}'">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Portfolio Logo">
+                My Portfolio
+            </div>
+            <nav>
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('profile') }}" class="active">Profile</a>
+                <a href="{{ url_for('works') }}">Works</a>
+                <a href="{{ url_for('contacts') }}">Contacts</a>
+            </nav>
+        </header>
 
-    <main>
-        <h1>Profile</h1>
-    </main>
+        <main class="profile-hero">
+            <section class="profile-image">
+                <img src="{{ url_for('static', filename='profilepic.jpg') }}" alt="Profile picture of Jedrick Nepacena">
+            </section>
 
-    <footer>
-        <p>&copy; 2025 Personal Web Portfolio</p>
-    </footer>
+            <section class="profile-text">
+                <h1>Hello, I'm <span>Jedrick Nepacena</span></h1>
+                <h2><span>Computer Engineering Student</span></h2>
+                <p>
+                    I am a college student pursuing a Bachelor of Science in Computer Engineering at the Polytechnic University of the Philippines. 
+                    I love playing video games, coding, editing videos, and designing graphics.
+                </p>
+
+                <div class="social-links">
+                    <a href="https://facebook.com/Jedrick.nepacena.1202" target="_blank" rel="noopener" title="Facebook">
+                        <img src="{{ url_for('static', filename='facebook.png') }}" alt="Facebook Icon">
+                    </a>
+                    <a href="https://github.com/Riku458" target="_blank" rel="noopener" title="GitHub">
+                        <img src="{{ url_for('static', filename='github.png') }}" alt="GitHub Icon">
+                    </a>
+                    <a href="mailto:jedrickpogi69@gmail.com" title="Email Jedrick">
+                        <img src="{{ url_for('static', filename='gmail.png') }}" alt="Gmail Icon">
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Personal Web Portfolio</p>
+        </footer>
+
+    </div>
 </body>
 </html>

@@ -3,30 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Works</title>
+    <title>Works - My Portfolio</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <nav>
-        <a href="{{ url_for('home') }}">Home</a>
-        <a href="{{ url_for('profile') }}">Profile</a>
-        <a href="{{ url_for('works') }}" class="active">Works</a>
-        <a href="{{ url_for('contacts') }}">Contacts</a>
-    </nav>
+    <div class="site-container page-wrapper">
 
-    <main>
-        <h1>Works</h1>
-        <p>Select a project below:</p>
+        <header>
+            <div class="logo" onclick="window.location.href='{{ url_for('profile') }}'">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Portfolio Logo">
+                My Portfolio
+            </div>
+            <nav>
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('profile') }}">Profile</a>
+                <a href="{{ url_for('works') }}" class="active">Works</a>
+                <a href="{{ url_for('contacts') }}">Contacts</a>
+            </nav>
+        </header>
 
-        <div class="works-links">
-            <a href="{{ url_for('work_uppercase') }}">Word to Uppercase</a>
-            <a href="{{ url_for('work_circle') }}">Area of Circle</a>
-            <a href="{{ url_for('work_triangle') }}">Area of Triangle</a>
-        </div>
-    </main>
+        <main>
+            <h1>My Works</h1>
+            <section class="works-container">
 
-    <footer>
-        <p>&copy; 2025 Personal Web Portfolio</p>
-    </footer>
+                <a href="{{ url_for('work_uppercase') }}" class="work-card">
+                    <h3>Uppercase Converter</h3>
+                    <p>Transform text instantly to uppercase with this simple yet practical tool.</p>
+                </a>
+
+                <a href="{{ url_for('work_circle') }}" class="work-card">
+                    <h3>Circle Calculator</h3>
+                    <p>Compute area and circumference easily by inputting radius values.</p>
+                </a>
+
+                <a href="{{ url_for('work_triangle') }}" class="work-card">
+                    <h3>Triangle Solver</h3>
+                    <p>Find perimeter and area by entering the side lengths of your triangle.</p>
+                </a>
+
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Personal Web Portfolio</p>
+        </footer>
+
+    </div>
 </body>
 </html>
