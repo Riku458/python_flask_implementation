@@ -3,25 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <nav>
-        <a href="/">Home</a>
-        <a href="/profile">Profile</a>
-        <a href="/works">Works</a>
-        <a href="/contacts">Contacts</a>
+        <a href="{{ url_for('home') }}" class="active">Home</a>
+        <a href="{{ url_for('profile') }}">Profile</a>
+        <a href="{{ url_for('works') }}">Works</a>
+        <a href="{{ url_for('contacts') }}">Contacts</a>
     </nav>
 
     <main>
-        <h1>Welcome</h1>
-        <p></p>
-        <p></p>
+        <h1>Home</h1>
     </main>
 
     <footer>
-        <p>© 2025 Minimalist Flask Website</p>
+        <p>&copy; 2025 Personal Web Portfolio</p>
     </footer>
 </body>
 </html>

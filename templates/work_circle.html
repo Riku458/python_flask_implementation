@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Works</title>
+    <title>Area of Circle</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
@@ -15,13 +15,18 @@
     </nav>
 
     <main>
-        <h1>Works</h1>
-        <p>Select a project below:</p>
+        <h1>Calculate Area of Circle</h1>
+        <form method="POST">
+            <input type="number" name="radius" step="any" placeholder="Enter radius" required>
+            <button type="submit">Calculate</button>
+        </form>
+
+        <div class="result">
+            <p><strong>Area:</strong> {{ result or '' }}</p>
+        </div>
 
         <div class="works-links">
-            <a href="{{ url_for('work_uppercase') }}">Word to Uppercase</a>
-            <a href="{{ url_for('work_circle') }}">Area of Circle</a>
-            <a href="{{ url_for('work_triangle') }}">Area of Triangle</a>
+            <a href="{{ url_for('works') }}">← Back to Works</a>
         </div>
     </main>
 

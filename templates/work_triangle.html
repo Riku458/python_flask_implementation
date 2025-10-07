@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area of Triangle</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('profile') }}">Profile</a>
+        <a href="{{ url_for('works') }}" class="active">Works</a>
+        <a href="{{ url_for('contacts') }}">Contacts</a>
+    </nav>
+
+    <main>
+        <h1>Calculate Area of Triangle</h1>
+        <form method="POST">
+            <input type="number" name="base" step="any" placeholder="Enter base" required>
+            <input type="number" name="height" step="any" placeholder="Enter height" required>
+            <button type="submit">Calculate</button>
+        </form>
+
+        <div class="result">
+            <p><strong>Area:</strong> {{ result or '' }}</p>
+        </div>
+
+        <div class="works-links">
+            <a href="{{ url_for('works') }}">← Back to Works</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Personal Web Portfolio</p>
+    </footer>
+</body>
+</html>

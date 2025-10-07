@@ -10,15 +10,40 @@ def home():
 def profile():
     return render_template('profile.html')
 
-@app.route('/works', methods=['GET', 'POST'])
+@app.route('/works')
 def works():
+    return render_template('works.html')
+
+@app.route('/works/uppercase', methods=['GET', 'POST'])
+def work_uppercase():
     result = None
-
     if request.method == 'POST':
-        input_data = request.form.get('inputData')
-        result = f"You entered: {input_data}"
+        text = request.form.get('text', '')
+        result = text.upper()
+    return render_template('work_uppercase.html', result=result)
 
-    return render_template('works.html', result=result)
+@app.route('/works/circle', methods=['GET', 'POST'])
+def work_circle():
+    result = None
+    if request.method == 'POST':
+        try:
+            radius = float(request.form.get('radius', 0))
+            result = 3.1416 * (radius ** 2)
+        except ValueError:
+            result = "Invalid input. Please enter a number."
+    return render_template('work_circle.html', result=result)
+
+@app.route('/works/triangle', methods=['GET', 'POST'])
+def work_triangle():
+    result = None
+    if request.method == 'POST':
+        try:
+            base = float(request.form.get('base', 0))
+            height = float(request.form.get('height', 0))
+            result = 0.5 * base * height
+        except ValueError:
+            result = "Invalid input. Please enter numbers."
+    return render_template('work_triangle.html', result=result)
 
 @app.route('/contacts')
 def contacts():
